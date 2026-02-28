@@ -40,6 +40,9 @@ Analysis Performed
 Calculated total revenue per month
 Computed Month-over-Month growth using LAG()
 Identified the worst-performing month
+## 📈 Monthly Revenue Trend
+
+![Monthly Revenue](visualizations/monthly_revenue.png)
 
 Top Product Categories
 
