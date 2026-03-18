@@ -1,82 +1,99 @@
-# E-Commerce-Sales-Analysis-SQL-Project-
-This project analyzes transactional data from a Brazilian e-commerce company to evaluate revenue performance, customer behavior, product contribution, and payment method usage.
-The analysis was conducted using SQL in Google BigQuery, applying advanced techniques such as:
+ E-Commerce Sales Analysis (SQL & BigQuery)
 
-Common Table Expressions (CTEs)
-Multi-table JOIN operations
-Window Functions (LAG, RANK, NTILE)
-Customer segmentation
-Month-over-Month (MoM) growth analysis
-Revenue aggregation with granularity control
+Overview
+This project analyzes transactional data from a Brazilian e-commerce company (Olist dataset) to evaluate revenue performance, customer behavior, product contribution, and payment methods.
 
-Business Objectives
-Analyze monthly revenue trends
-Identify the worst-performing month
-Detect revenue concentration by product category
-Identify high-value customers
-Segment customers based on spending behavior
-Evaluate payment method performance
-Generate strategic business recommendations
+The analysis was conducted using SQL in Google BigQuery, applying advanced analytical techniques to extract business insights.
 
-Tools & Technologies
-SQL
-Google BigQuery
-R (for data visualization)
-GitHub (version control & documentation)
+---
+
+ Business Objectives
+- Analyze monthly revenue trends  
+- Identify the worst-performing month  
+- Evaluate revenue concentration by product category  
+- Identify high-value customers  
+- Segment customers based on spending  
+- Analyze payment method performance  
+
+---
+
+ Tools & Technologies
+- SQL (Google BigQuery)
+- R (Data Visualization)
+- GitHub (Version Control)
+
+---
 
 Dataset
-The dataset used in this project is the Olist Brazilian E-commerce Dataset, which contains:
+The dataset used is the **Olist Brazilian E-commerce Dataset**, including:
+- Orders  
+- Customers  
+- Order Items  
+- Products  
+- Payments  
 
-Orders
-Customers
-Order Items
-Products
-Payments
+Only **delivered orders** were considered to ensure revenue accuracy.
 
-The analysis focused exclusively on delivered orders to ensure revenue accuracy.
+---
 
-Analysis Performed
+Analysis Process
+1. Data cleaning and filtering (delivered orders only)  
+2. Revenue aggregation by month  
+3. MoM growth calculation using `LAG()`  
+4. Product-level revenue analysis (handling JOIN duplication)  
+5. Customer segmentation using `NTILE()`  
+6. Payment method performance analysis  
 
-Calculated total revenue per month
-Computed Month-over-Month growth using LAG()
-Identified the worst-performing month
-## 📈 Monthly Revenue Trend
+---
 
-![Monthly Revenue](visualizations/monthly_revenue.png)
+ Key Analysis
 
-Top Product Categories
+Monthly Revenue
+- Calculated total revenue per month  
+- Computed Month-over-Month growth  
 
-Aggregated revenue at product-level granularity
-Corrected JOIN duplication issue by using price + freight_value
-Identified revenue concentration in top categories
+Product Analysis
+- Identified top-performing categories  
+- Solved JOIN duplication using price + freight_value  
 
-Customer Analysis & Segmentation
+Customer Segmentation
+- Ranked customers using `RANK()`  
+- Segmented customers:
+  - VIP (Top 10%)
+  - Regular
+  - Low Value  
 
-Calculated total revenue per customer
-Ranked customers using RANK()
-Created revenue-based segments using NTILE():
-VIP (Top 10%)
-Regular
-Low Value
+Payment Analysis
+- Identified dominant payment method  
+- Calculated revenue share  
+- Computed Average Order Value (AOV)  
 
-Payment Method Analysis
+---
 
-Identified dominant payment method
-Calculated revenue share per payment type
-Computed Average Order Value (AOV) by payment method
+ Key Insights
+- Revenue is highly concentrated in a few product categories  
+- A small percentage of customers (VIP) generates most revenue  
+- Strong dependency on credit card payments  
+- Monthly revenue shows seasonal volatility  
 
-Key Finding:Credit Card is the dominant payment method in revenue, order volume, and average order value.
-
-Key Insights
-
-Revenue is highly concentrated in a small group of product categories.
-A limited percentage of customers (VIP segment) drives a large portion of total revenue.
-The business shows strong dependency on credit card payments.
-Monthly revenue volatility suggests seasonal impact.
+---
 
 Strategic Recommendations
+- Implement loyalty programs for VIP customers  
+- Diversify payment methods to reduce risk  
+- Launch campaigns in low-performing months  
+- Expand high-performing product categories  
 
-Implement loyalty programs targeting VIP customers.
-Diversify payment incentives to reduce dependency risk.
-Launch campaigns during historically weak revenue months.
-Expand high-performing product categories
+---
+
+ Project Structure
+- `queries.sql` → SQL queries  
+- `dataset.csv` → Dataset (or link)  
+- `visualizations/` → Charts (if included)  
+
+---
+
+Future Improvements
+- Build interactive dashboard (Power BI / Tableau)  
+- Add predictive sales analysis  
+- Include customer retention modeling  
