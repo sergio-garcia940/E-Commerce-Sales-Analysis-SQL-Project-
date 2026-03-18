@@ -1,3 +1,4 @@
+--Segmenting customers by total expenditure--
 WITH customer_revenue AS (
   SELECT
     c.customer_unique_id,
