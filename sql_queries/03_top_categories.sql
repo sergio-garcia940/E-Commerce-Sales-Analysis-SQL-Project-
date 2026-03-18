@@ -1,3 +1,4 @@
+--Categorizing revenue by source/period--
 WITH customer_metrics AS (
   SELECT
     c.customer_unique_id,
